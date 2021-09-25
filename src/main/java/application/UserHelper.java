@@ -12,6 +12,7 @@ public class UserHelper extends HelperBase {
 
     public void fillLogInForm(User user) {
         click(By.xpath("//a[text()='LOGIN']"));
+        pause(5000);
         type(By.cssSelector("input[placeholder='Email']"), user.getEmail());
         type(By.cssSelector("input[placeholder='Password']"), user.getPassword());
         click(By.xpath("//button[text()=' Login']"));

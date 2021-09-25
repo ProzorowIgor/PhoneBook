@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 
 public class AddNewContact extends TestBased {
 
+    int i;
+
     @BeforeMethod
 
     public void preCondition() {
@@ -20,10 +22,10 @@ public class AddNewContact extends TestBased {
     @Test
 
     public void contactAddedSuccess() {
-        int i = (int) ((System.currentTimeMillis() / 10000));
+        i = (int) ((System.currentTimeMillis() / 10000));
 
         Contact contact = Contact.builder()
-                .name("Obama")
+                .name("George")
                 .lastName("Byden")
                 .phone("0" + i)
                 .email("VAS" + i + "@mail.ru")
@@ -38,22 +40,34 @@ public class AddNewContact extends TestBased {
         Assert.assertTrue(app.getContactHelper().isContactPageApears());
     }
 
-  /*  @Test
+    @Test
 
     public void negativeTestOfAddingContact() {
 
+        Contact contact2 = Contact.builder()
+                .name("Bush")
+                .lastName("Byden")
+                .phone("0" + i)
+                .email("VAS" + i + "@mail.ru")
+                .address("rehovot, tuval 2/3")
+                .description("maybe it works")
+                .build();
 
 
+        app.getContactHelper().initAddingNewContact();
+        app.getContactHelper().fillContactFields(contact2);
+        app.getContactHelper().pushSaveButton();
+        Assert.assertFalse(app.getContactHelper().isContactPageApears());
 
-    }*/
+
+    }
 
     @Test
 
     public void deleteContact() {
-        app.getContactHelper().clickOnContact();
+        app.getContactHelper().clickOnContactBook();
+        app.getContactHelper().clickOnContact(i);
         app.getContactHelper().clickOnRemoveButton();
-
-
     }
 
 

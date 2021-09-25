@@ -35,18 +35,33 @@ public class ContactHelper extends HelperBase {
     }
 
     public boolean isContactPageApears() {
-
+            pause(5000);
         return isElementPresent(By.cssSelector(".contact-item_card__2SOIM"));
     }
 
-    public void clickOnContact() {
+    /*public void clickOnContact() {
 
         click(By.xpath("//div[@class='contact-page_leftdiv__yhyke']//div//div[1]"));
 
+    }*/
+
+
+    public void clickOnContact(int i){
+        String path = "//h3[text()='0"+i+"']";
+
+        click(By.xpath(path));
+
+
     }
+
 
     public void clickOnRemoveButton() {
 
         click(By.xpath("//button[text()='Remove']"));
+    }
+
+    public void clickOnContactBook() {
+
+        click(By.xpath("//a[text()='CONTACTS']"));
     }
 }
