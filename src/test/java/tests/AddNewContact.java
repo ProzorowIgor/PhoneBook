@@ -38,7 +38,7 @@ public class AddNewContact extends TestBased {
         Assert.assertTrue(app.getContactHelper().isContactPageApears());
     }
 
-    // @Test
+    
     @Test(priority = 2)
     public void negativeTestOfAddingContact() {
 
@@ -60,7 +60,7 @@ public class AddNewContact extends TestBased {
 
     }
 
-    // @Test
+
     @Test(priority = 3)
     public void deleteContact() {
         app.getContactHelper().clickOnContactBook();
