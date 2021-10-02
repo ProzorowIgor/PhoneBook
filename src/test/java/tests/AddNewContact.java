@@ -2,9 +2,7 @@ package tests;
 
 import models.Contact;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class AddNewContact extends TestBased {
 
@@ -19,8 +17,8 @@ public class AddNewContact extends TestBased {
 
     }
 
-    @Test
-
+    // @Test(invocationCount = 5)
+    @Test(priority = 1)
     public void contactAddedSuccess() {
         i = (int) ((System.currentTimeMillis() / 10000));
 
@@ -40,8 +38,8 @@ public class AddNewContact extends TestBased {
         Assert.assertTrue(app.getContactHelper().isContactPageApears());
     }
 
-    @Test
-
+    // @Test
+    @Test(priority = 2)
     public void negativeTestOfAddingContact() {
 
         Contact contact2 = Contact.builder()
@@ -62,8 +60,8 @@ public class AddNewContact extends TestBased {
 
     }
 
-    @Test
-
+    // @Test
+    @Test(priority = 3)
     public void deleteContact() {
         app.getContactHelper().clickOnContactBook();
         app.getContactHelper().clickOnContact(i);
