@@ -18,7 +18,9 @@ public class AddNewContact extends TestBased {
     }
 
     // @Test(invocationCount = 5)
-    @Test(priority = 1)
+    //@Test(priority = 1)
+
+@Test
     public void contactAddedSuccess() {
         i = (int) ((System.currentTimeMillis() / 10000));
 
@@ -38,8 +40,9 @@ public class AddNewContact extends TestBased {
         Assert.assertTrue(app.getContactHelper().isContactPageApears());
     }
 
-    
-    @Test(priority = 2)
+
+    //@Test(priority = 2)
+    @Test(dependsOnMethods ="contactAddedSuccess" )
     public void negativeTestOfAddingContact() {
 
         Contact contact2 = Contact.builder()
@@ -61,7 +64,8 @@ public class AddNewContact extends TestBased {
     }
 
 
-    @Test(priority = 3)
+   // @Test(priority = 3)
+    @Test(dependsOnMethods ="negativeTestOfAddingContact" )
     public void deleteContact() {
         app.getContactHelper().clickOnContactBook();
         app.getContactHelper().clickOnContact(i);
