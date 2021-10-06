@@ -20,7 +20,7 @@ public class AddNewContact extends TestBased {
     // @Test(invocationCount = 5)
     //@Test(priority = 1)
 
-@Test
+@Test(groups = {"web"})
     public void contactAddedSuccess() {
         i = (int) ((System.currentTimeMillis() / 10000));
 

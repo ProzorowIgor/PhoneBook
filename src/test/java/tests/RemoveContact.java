@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class RemoveContact extends TestBased{
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
 
     public void precondition() {
 

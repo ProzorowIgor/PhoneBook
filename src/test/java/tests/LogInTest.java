@@ -3,13 +3,20 @@ package tests;
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LogInTest extends TestBased {
 
+    @BeforeMethod(alwaysRun = true)
 
+    public void postCondition(){
+        if(app.getUserHelper().isLogOutPresent()) {
+            app.getUserHelper().logOut();
+        }
+    }
 
-    @Test
+    @Test(groups = {"web"})
 
     public static void logInSuccess(){
         User user = new User()
@@ -29,13 +36,7 @@ public class LogInTest extends TestBased {
 
     }*/
 
-    @AfterMethod
 
-    public void postCondition(){
-        if(app.getUserHelper().isLogOutPresent()) {
-            app.getUserHelper().logOut();
-        }
-    }
 
 
 

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class RegistrationTestSuccess extends TestBased{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition() {
         if(app.getUserHelper().isLogOutPresent()){
             app.getUserHelper().logOut();
