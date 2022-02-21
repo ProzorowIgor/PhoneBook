@@ -22,9 +22,11 @@ public class RegistrationTestSuccess extends TestBased{
         app.getUserHelper().fillLoginRegForm(new User().withEmail("john"+i+"@gmail.com").withPassword("Jj123$"+i));
         app.getUserHelper().clickRegistrationButton();
         Assert.assertTrue(app.getUserHelper().isLogged());
+
+        System.out.println("1========="+Thread.currentThread().getId());
     }
 
-    @Test
+    @Test(dependsOnMethods = "registrationTestSuccess")
 
     public void registrationNegativeWrongPassword(){
         int i =(int) ((System.currentTimeMillis()/1000)%3600);
@@ -32,7 +34,7 @@ public class RegistrationTestSuccess extends TestBased{
         app.getUserHelper().fillLoginRegForm(new User().withEmail("john"+i+"@gmail.com").withPassword("j123$"+i));
         app.getUserHelper().clickRegistrationButton();
         Assert.assertTrue(app.getUserHelper().isAlertPresent());
-
+        System.out.println("2========="+Thread.currentThread().getId());
 
     }
 

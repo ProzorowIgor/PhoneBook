@@ -40,6 +40,8 @@ task reg(type: Test){
             suites 'src/test/resources/regng.xml'
         } else if (suite.equals('smoke')) {
             suites 'src/test/resources/smoke.xml'
+        } else if (suite.equals('parallel')) {
+            suites 'src/test/resources/parallel.xml'
         } else {
             suites 'src/test/resources/testng.xml'
         }
